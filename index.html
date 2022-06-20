@@ -1,0 +1,264 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body question">
+            <div class="card">
+              <div class="card-body">
+                <div class="question-count">
+                  (<span id="current-question"></span> of <span id="total-questions"></span>)
+                </div>
+                <div class="question-index">
+                  First Question
+                </div>
+                <div id="question-counter">
+                  20
+                </div>
+              </div>
+            </div>
+            <div class="card question-title">
+              <div class="card-body">
+                <h5 class="card-title" id="question-title-text">
+                  What is the best way to learn web development?
+                </h5>
+            </div>
+          </div>
+
+            <div class="card question-options">
+              <div class="card-body">
+                <div class="card question-option">
+                  <div class="card-body">
+                    <div class="question-option">
+                      <div class="question-option-title">
+                        <h5 class="card-title">
+                          <label>
+                            <input type="radio" name="option" value="1">
+                          </label>
+                          <span id="option-a-text">
+                            A. Learn by doing
+                          </span>
+                        </h5>
+            </div>
+        </div>
+      </div>
+    </div>
+                <div class="card question-option">
+                  <div class="card-body">
+                    <div class="question-option">
+                      <div class="question-option-title">
+                        <h5 class="card-title">
+                          <label>
+                            <input type="radio" name="option" value="1">
+                          </label>
+                          <span id="option-b-text">
+                            B. Learn by doing
+                          </span>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card question-option">
+                  <div class="card-body">
+                    <div class="question-option">
+                      <div class="question-option-title">
+                        <h5 class="card-title">
+                          <label>
+                            <input type="radio" name="option" value="1">
+                          </label>
+                          <span id="option-c-text">
+                            C. Learn by doing
+                          </span>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card question-option">
+                  <div class="card-body">
+                    <div class="question-option">
+                      <div class="question-option-title">
+                        <h5 class="card-title">
+                          <label>
+                            <input type="radio" name="option" value="1">
+                          </label>
+                          <span id="option-d-text">
+                            D. Learn by doing
+                          </span>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card controls">
+              <div class="card-body">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="controls-buttons">
+<!--                      <button class="btn btn-primary previous-btn">-->
+<!--                        <span>-->
+<!--                          Previous-->
+<!--                        </span>-->
+<!--                      </button>-->
+                      <button class="btn btn-primary next-btn">
+                        <span>
+                          Next
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/question.js"></script>
+
+<script>
+  /////// INITIAL ASSIGNMENT ///////
+  const COUNTER_TIME = 20;
+  let id = null;
+  let currentQuestionId = 1;
+  const questionsCount = questions.length; // total questions
+  $('#current-question').text(currentQuestionId);
+  $('#total-questions').text(questionsCount);
+  setQuestion(currentQuestionId);
+
+
+  ////// UPDATES //////
+  // id = setInterval(function() {
+  //   let counter = document.getElementById('question-counter');
+  //   let counterValue = parseInt(counter.innerHTML);
+  //   counterValue--;
+  //   counter.innerHTML = counterValue;
+  //   if (counterValue === 0) {
+  //     resetCounter();
+  //     currentQuestionId += 1;
+  //     if (currentQuestionId <= questionsCount) {
+  //       setQuestion(currentQuestionId);
+  //     } else {
+  //       clearInterval(id);
+  //     }
+  //   }
+  //
+  // }, 1000);
+
+  $('.next-btn').click(function() {
+    if (!isQuestionAnswered()) {
+      alert('Please select an option');
+      return;
+    }
+    resetCounter();
+    if (currentQuestionId < questionsCount) {
+      setNextQuestion();
+    } else {
+      clearInterval(id);
+    }
+  });
+
+  function isQuestionAnswered() {
+let option = $('input[name=option]:checked');
+    return option.length > 0;
+
+  }
+
+  // $('.previous-btn').click(function() {
+  //   resetCounter();
+  //   if (currentQuestionId > 1) {
+  //     setPreviousQuestion();
+  //   }
+  // });
+
+  function resetCounter() {
+    let counter = document.getElementById('question-counter');
+    counter.innerHTML = COUNTER_TIME;
+  }
+
+  function setQuestion(questionId) {
+    // clear selected option
+    $('input[name=option]').prop('checked', false);
+    const question = questions.find(question => question.id === questionId);
+    document.getElementById('question-title-text').innerHTML = question.title;
+    document.getElementById('option-a-text').innerHTML = question.A;
+    document.getElementById('option-b-text').innerHTML = question.B;
+    document.getElementById('option-c-text').innerHTML = question.C;
+    document.getElementById('option-d-text').innerHTML = question.D;
+    document.getElementById('current-question').textContent = questionId;
+    if (questionId === questionsCount) {
+      $('.next-btn').text('Finish');
+    }
+    // if (questionId === 1) {
+    //   $('.previous-btn').hide();
+    // } else {
+    //   $('.previous-btn').show();
+    // }
+  }
+
+  // update select option card color
+  function updateOptionCardColor(optionId) {
+
+  }
+
+  function setNextQuestion() {
+    currentQuestionId++;
+    setQuestion(currentQuestionId);
+  }
+
+  function setPreviousQuestion() {
+    currentQuestionId--;
+    setQuestion(currentQuestionId);
+  }
+
+</script>
+</body>
+</html>
